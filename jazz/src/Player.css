@@ -1,0 +1,31 @@
+.player-grid {
+  display: grid;
+  grid-template-columns: auto 590px auto;
+  grid-template-rows: 100px 610px auto;
+  justify-items: center;
+}
+
+.player {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  overflow: auto;
+  width: 100%;
+  border: black 2px solid;
+}
+
+.play-controller {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  padding: 0.5em 0;
+  width: 100%;
+}
+
+.track {
+  display: flex;
+  margin: 0.5em 0.5em;
+  cursor: pointer;
+}
+
+.track div {
+  padding: 0 0.5em;
+}

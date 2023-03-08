@@ -1,0 +1,14 @@
+.logo {
+  width: 45%;
+  padding: 1.3em;
+  border: 10px rgb(177, 82, 255) solid;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2em;
+}
+.logo-min {
+  width: 2.8%;
+  padding: 0.4em;
+  border: 1px rgb(177, 82, 255) solid;
+  margin: 0 1em;
+}
