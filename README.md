@@ -1,3 +1,3 @@
 # Jazz Corner
 
-created using Spotify and yelp api.
+Created using Spotify and yelp api.
