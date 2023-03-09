@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
+import Pagination from "./common/Pagination";
 
 const Podcasts = ({ accessToken }) => {
   const [podcasts, setPodcasts] = useState([]);
@@ -28,6 +29,7 @@ const Podcasts = ({ accessToken }) => {
 
   return (
     <div>
+      <Pagination previous={previous} next={next} setEndPoint={setEndPoint} />
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         {podcasts.map((i) => (
           <div key={i.id} className="card p-4">
@@ -49,20 +51,7 @@ const Podcasts = ({ accessToken }) => {
           </div>
         ))}
       </div>
-      <nav>
-        <ul className="pagination justify-content-center">
-          <li className="page-item">
-            <a className="page-link" onClick={() => setEndPoint(previous)}>
-              Previous
-            </a>
-          </li>
-          <li className="page-item">
-            <a className="page-link" onClick={() => setEndPoint(next)}>
-              Next
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <Pagination previous={previous} next={next} setEndPoint={setEndPoint} />
     </div>
   );
 };

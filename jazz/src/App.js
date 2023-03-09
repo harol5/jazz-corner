@@ -12,7 +12,10 @@ import axios from "axios";
 
 const code = new URLSearchParams(window.location.search).get("code");
 
-const serverUrl = "https://jazzc.herokuapp.com";
+const serverUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:54065"
+    : "https://jazzc.herokuapp.com";
 
 function App() {
   const [accessToken, setAccessToken] = useState();
