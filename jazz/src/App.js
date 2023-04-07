@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import "./App.css";
 import Navbar from "./components/Navbar";
 import Playlists from "./components/Playlists";
 import Podcasts from "./components/Podcast";
@@ -9,6 +8,7 @@ import NotFound from "./components/notFound";
 import Login from "./components/Login";
 import PlaylistTracks from "./components/PlaylistTracks";
 import axios from "axios";
+import "./index.css";
 
 const code = new URLSearchParams(window.location.search).get("code");
 
@@ -62,7 +62,7 @@ function App() {
   return code ? (
     <React.Fragment>
       <Navbar />
-      <main className="container" style={{ marginTop: "5em" }}>
+      <main className="container">
         <Routes>
           <Route path="/places" element={<Places serverUrl={serverUrl} />} />
           <Route

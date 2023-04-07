@@ -41,7 +41,7 @@ const Podcasts = ({ accessToken }) => {
               </time>
               <p className="card-text">{i.description}</p>
               <a
-                className="btn btn-secondary stretched-link"
+                className="btn btn-secondary"
                 href={i.external_urls.spotify}
                 target="_blank"
               >
