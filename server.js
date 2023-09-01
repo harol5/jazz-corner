@@ -7,15 +7,12 @@ const yelp = require("yelp-fusion");
 const path = require("path");
 
 const PORT = process.env.PORT || 54065;
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "jazz/build")));
-
-app.get("/test", (req, res) => {
-  res.send("this is a test");
-});
 
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken;
