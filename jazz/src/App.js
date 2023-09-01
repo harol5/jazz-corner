@@ -38,10 +38,11 @@ function App() {
         console.log(error);
         // window.location = "/";
       });
-  }, [code]);
+  }, []);
 
   useEffect(() => {
     if (!refreshToken || !expiresIn) return;
+
     const interval = setInterval(() => {
       axios
         .post(`${serverUrl}/refresh`, {

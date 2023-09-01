@@ -1,20 +1,19 @@
 const Pagination = ({ previous, next, setEndPoint }) => {
   return (
     <nav>
-      <ul className="pagination justify-content-center">
-        <li className="page-item">
-          <a
-            href="#"
-            className="page-link"
+      <ul className="pagination justify-content-center z-0">
+        <li className="page-item m-2">
+          <button
+            className="btn btn-primary"
             onClick={() => setEndPoint(previous)}
           >
-            Previous
-          </a>
+            Prev
+          </button>
         </li>
-        <li className="page-item">
-          <a href="#" className="page-link" onClick={() => setEndPoint(next)}>
+        <li className="page-item m-2">
+          <button className="btn btn-primary" onClick={() => setEndPoint(next)}>
             Next
-          </a>
+          </button>
         </li>
       </ul>
     </nav>

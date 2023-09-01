@@ -4,6 +4,7 @@ import axios from "axios";
 import Pagination from "./common/Pagination";
 
 const Playlists = ({ accessToken }) => {
+  console.log("playlist called!!");
   const [playlists, setPlaylists] = useState([]);
   const [endPoint, setEndPoint] = useState(
     "https://api.spotify.com/v1/browse/categories/jazz/playlists"
@@ -12,13 +13,15 @@ const Playlists = ({ accessToken }) => {
   const [previous, setPrevious] = useState();
   const cleanPlaylist = playlists.filter((i) => i !== null);
 
-  const config = {
-    headers: {
-      Authorization: "Bearer " + accessToken,
-    },
-  };
+  console.log(next);
 
   useEffect(() => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + accessToken,
+      },
+    };
+
     axios
       .get(endPoint, config)
       .then((res) => {
@@ -31,6 +34,7 @@ const Playlists = ({ accessToken }) => {
 
   return (
     <div>
+      <h1>Playlists</h1>
       <Pagination previous={previous} next={next} setEndPoint={setEndPoint} />
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 justify-content-center">
         {cleanPlaylist.map((i) => (
