@@ -32,6 +32,10 @@
   padding: 0.2em 0.5em;
 }
 
+.track:hover {
+  background-color: rgba(29, 29, 29, 0.321);
+}
+
 .track-selected {
   background-color: rgb(29, 29, 29);
   color: rgba(240, 255, 255, 0.671);

@@ -4,9 +4,9 @@ import "../../Player.css";
 
 const Player = ({ items, accessToken }) => {
   const [trackSelected, setTrackSelected] = useState(0);
+  const [trackId, setTrackId] = useState("");
   const [play, setPlay] = useState(false);
   const uris = items.map((i) => i.track.uri);
-
   useEffect(() => setPlay(true), [trackSelected]);
 
   return (
@@ -18,7 +18,7 @@ const Player = ({ items, accessToken }) => {
             item={i}
             index={index}
             setTrackSelected={setTrackSelected}
-            trackSelected={trackSelected}
+            trackPlayingId={trackId}
           />
         ))}
       </div>
@@ -28,6 +28,7 @@ const Player = ({ items, accessToken }) => {
           showSaveIcon
           callback={(state) => {
             if (!state.isPlaying) setPlay(false);
+            setTrackId(state.track.id);
           }}
           play={play}
           uris={uris}
@@ -39,10 +40,10 @@ const Player = ({ items, accessToken }) => {
   );
 };
 
-function Song({ item, index, setTrackSelected, trackSelected }) {
+function Song({ item, index, setTrackSelected, trackPlayingId }) {
   return (
     <div
-      className={index === trackSelected ? "track-selected" : "track"}
+      className={item.track.id === trackPlayingId ? "track-selected" : "track"}
       onClick={() => setTrackSelected(index)}
     >
       <img src={item.track.album.images[2].url} alt="" />

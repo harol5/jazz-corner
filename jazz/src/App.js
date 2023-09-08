@@ -42,7 +42,6 @@ function App() {
 
   useEffect(() => {
     if (!refreshToken || !expiresIn) return;
-
     const interval = setInterval(() => {
       axios
         .post(`${serverUrl}/refresh`, {
