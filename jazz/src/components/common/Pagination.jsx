@@ -6,12 +6,17 @@ const Pagination = ({ previous, next, setEndPoint }) => {
           <button
             className="btn btn-primary"
             onClick={() => setEndPoint(previous)}
+            disabled={!previous ? "disabled" : null}
           >
             Prev
           </button>
         </li>
         <li className="page-item m-2">
-          <button className="btn btn-primary" onClick={() => setEndPoint(next)}>
+          <button
+            className="btn btn-primary"
+            onClick={() => setEndPoint(next)}
+            disabled={!next ? "disabled" : null}
+          >
             Next
           </button>
         </li>

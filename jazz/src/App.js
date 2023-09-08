@@ -36,7 +36,7 @@ function App() {
       })
       .catch((error) => {
         console.log(error);
-        // window.location = "/";
+        window.location = "/";
       });
   }, []);
 

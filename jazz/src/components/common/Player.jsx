@@ -13,17 +13,13 @@ const Player = ({ items, accessToken }) => {
     <article className="player-grid">
       <div className="player">
         {items.map((i, index) => (
-          <div
+          <Song
             key={i.track.id}
-            className="track"
-            onClick={() => setTrackSelected(index)}
-          >
-            <img src={i.track.album.images[2].url} />
-            <div>
-              <h5>{i.track.name}</h5>
-              <h6>{i.track.artists[0].name}</h6>
-            </div>
-          </div>
+            item={i}
+            index={index}
+            setTrackSelected={setTrackSelected}
+            trackSelected={trackSelected}
+          />
         ))}
       </div>
       <div className="play-controller">
@@ -42,5 +38,20 @@ const Player = ({ items, accessToken }) => {
     </article>
   );
 };
+
+function Song({ item, index, setTrackSelected, trackSelected }) {
+  return (
+    <div
+      className={index === trackSelected ? "track-selected" : "track"}
+      onClick={() => setTrackSelected(index)}
+    >
+      <img src={item.track.album.images[2].url} alt="" />
+      <div>
+        <h5>{item.track.name}</h5>
+        <h6>{item.track.artists[0].name}</h6>
+      </div>
+    </div>
+  );
+}
 
 export default Player;

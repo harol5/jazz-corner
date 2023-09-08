@@ -60,6 +60,7 @@
     width: 70%;
     height: 100%;
     transition: all 0.7s;
+    z-index: 11;
   }
   .nav-links {
     flex-direction: column;

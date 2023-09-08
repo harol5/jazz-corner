@@ -13,6 +13,7 @@ const Playlists = ({ accessToken }) => {
   const cleanPlaylist = playlists.filter((i) => i !== null);
 
   useEffect(() => {
+    if (!accessToken || !endPoint) return;
     const config = {
       headers: {
         Authorization: "Bearer " + accessToken,
