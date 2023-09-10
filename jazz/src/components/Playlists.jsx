@@ -28,6 +28,8 @@ const Playlists = ({ accessToken }) => {
         setPrevious(res.data.playlists.previous);
       })
       .catch((err) => console.log(err));
+
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, [accessToken, endPoint]);
 
   return (

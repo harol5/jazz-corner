@@ -11,7 +11,7 @@ const Places = ({ serverUrl }) => {
         setPlaces(res.data.businesses);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [serverUrl]);
 
   return (
     <div>
@@ -23,6 +23,7 @@ const Places = ({ serverUrl }) => {
               src={i.image_url}
               className="img-fluid img-thumbnail mx-auto d-block"
               style={{ objectFit: "cover", width: 300, height: 300 }}
+              alt=""
             />
             <div className="card-body">
               <h6 className="text-muted">{i.name}</h6>
@@ -37,7 +38,7 @@ const Places = ({ serverUrl }) => {
               <li className="list-group-item">Rating: {i.rating}</li>
               <li className="list-group-item">Reviews: {i.review_count}</li>
               <li className="list-group-item">
-                <a href={i.url} target="_blank">
+                <a href={i.url} target="_blank" rel="noreferrer">
                   Yelp!
                 </a>
               </li>

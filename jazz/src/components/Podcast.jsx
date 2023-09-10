@@ -10,13 +10,12 @@ const Podcasts = ({ accessToken }) => {
   const [next, setNext] = useState();
   const [previous, setPrevious] = useState();
 
-  const config = {
-    headers: {
-      Authorization: "Bearer " + accessToken,
-    },
-  };
-
   useEffect(() => {
+    const config = {
+      headers: {
+        Authorization: "Bearer " + accessToken,
+      },
+    };
     axios
       .get(endPoint, config)
       .then((res) => {
@@ -25,6 +24,8 @@ const Podcasts = ({ accessToken }) => {
         setPrevious(res.data.shows.previous);
       })
       .catch((err) => console.log(err));
+
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, [accessToken, endPoint]);
 
   return (
@@ -34,7 +35,11 @@ const Podcasts = ({ accessToken }) => {
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3">
         {podcasts.map((i) => (
           <div key={i.id} className="card p-4">
-            <img src={i.images[1].url} className="img-fluid img-thumbnail" />
+            <img
+              src={i.images[1].url}
+              className="img-fluid img-thumbnail"
+              alt=""
+            />
             <div className="card-body">
               <h5 className="card-title">{i.name}</h5>
               <time className="item-date small d-block text-muted mb-2">
@@ -45,6 +50,7 @@ const Podcasts = ({ accessToken }) => {
                 className="btn btn-secondary"
                 href={i.external_urls.spotify}
                 target="_blank"
+                rel="noreferrer"
               >
                 Listen Podscasts
               </a>
