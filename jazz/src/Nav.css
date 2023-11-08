@@ -55,7 +55,7 @@
 @media (max-width: 600px) {
   .nav {
     position: fixed;
-    left: -69%;
+    left: -71%;
     flex-direction: column;
     width: 70%;
     height: 100%;
