@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import SpotifyPlayer from "react-spotify-web-playback";
+import useAuth from "../../hooks/useAuth";
 import "../../Player.css";
 
-const Player = ({ items, accessToken }) => {
+const Player = ({ items }) => {
+  const { auth } = useAuth();
   const [trackSelected, setTrackSelected] = useState(0);
   const [trackId, setTrackId] = useState("");
   const [play, setPlay] = useState(false);
@@ -24,7 +26,7 @@ const Player = ({ items, accessToken }) => {
       </div>
       <div className="play-controller">
         <SpotifyPlayer
-          token={accessToken}
+          token={auth.code}
           showSaveIcon
           callback={(state) => {
             if (!state.isPlaying) setPlay(false);

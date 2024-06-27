@@ -1,8 +1,10 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
+import useAuth from "../hooks/useAuth";
 import Pagination from "./common/Pagination";
 
-const Podcasts = ({ accessToken }) => {
+const Podcasts = () => {
+  const { auth } = useAuth();
   const [podcasts, setPodcasts] = useState([]);
   const [endPoint, setEndPoint] = useState(
     "https://api.spotify.com/v1/search?q=jazz&type=show"
@@ -13,7 +15,7 @@ const Podcasts = ({ accessToken }) => {
   useEffect(() => {
     const config = {
       headers: {
-        Authorization: "Bearer " + accessToken,
+        Authorization: "Bearer " + auth.code,
       },
     };
     axios
@@ -26,7 +28,7 @@ const Podcasts = ({ accessToken }) => {
       .catch((err) => console.log(err));
 
     window.scrollTo({ top: 0, behavior: "instant" });
-  }, [accessToken, endPoint]);
+  }, [auth.code, endPoint]);
 
   return (
     <div>

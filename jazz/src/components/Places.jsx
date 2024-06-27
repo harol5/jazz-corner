@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const Places = ({ serverUrl }) => {
+const serverUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:54065"
+    : "https://jazzc.herokuapp.com";
+
+const Places = () => {
   const [places, setPlaces] = useState([]);
 
   useEffect(() => {
