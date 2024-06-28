@@ -11,7 +11,7 @@ const Places = () => {
 
   useEffect(() => {
     axios
-      .get(`${serverUrl}/places`)
+      .get(`${serverUrl}/yelp-places`)
       .then((res) => {
         setPlaces(res.data.businesses);
       })

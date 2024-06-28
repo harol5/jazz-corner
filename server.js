@@ -71,7 +71,7 @@ app.post("/login", (req, res) => {
     });
 });
 
-app.get("/places", (req, res) => {
+app.get("/yelp-places", (req, res) => {
   const client = yelp.client(process.env.API_KEY);
   client
     .search({
